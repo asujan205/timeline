@@ -8,7 +8,9 @@ import {groupedOptions} from'./docs/data';
 
 function App() {  
   const[user,setData]=useState([]);
-  
+  const[valid,setValid]=useState(false);
+   
+    const urlRegex=/https?:\/\/.*\.(?:svg)/;
   const saveuser = (e) => {
     e.preventDefault();
     const newUser = {
@@ -19,11 +21,20 @@ function App() {
       dateTime:e.target.date.value,
     };
     setData([...user, newUser]);
+     checkValid(e.target.svgUrl.value);
     e.target.Name.value = "";
     e.target.svgUrl.value="";
     e.target.color.value="";
     e.target.date.value='';
   };
+ const checkValid = (value) => {
+     if (!urlRegex.test(value)) {
+      setValid(false);
+    } 
+    else {
+      setValid(true);
+    }
+      }
 
   useEffect(() => {
     const json = JSON.stringify(user);
@@ -66,7 +77,7 @@ const a=()=>{
       /><br/>
       <label>Date</label>
       <input type="date" name="date" /><br/>
-<input type="submit" onClick={a} />
+<input type="submit" onClick={a} /> 
     
     </form>
     </div>
@@ -74,7 +85,7 @@ const a=()=>{
     <div className="main-timeline"  id="timeline"  >
  
             {user.map((data) => (
-                <TimelineItem data={data}  />
+                <TimelineItem data={data} valid={valid} />
             ))}
         </div>
       
