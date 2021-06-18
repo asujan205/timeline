@@ -138,7 +138,7 @@ flex:3;
     background: darkred;
     padding-top: 0px;
     width: 100%;
-
+  align-items: center;
 
 }
 .newicon{
@@ -160,7 +160,9 @@ flex:3;
   padding-top: 8px;
 
 }
-
+.title{
+  padding-left: 30px;
+}
 .description{
    
     font-size: 17px;
