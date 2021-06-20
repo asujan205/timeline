@@ -1,36 +1,13 @@
 import React,{useState,useEffect} from 'react';
 import './App.css';
-import {renderToString} from 'react-dom/server';
-const TimelineItem = ({ data ,valid}) => {
+import useLinksvg from './svg Components/useLinksvg.js';
+import useSvgCodeCheck from './svg Components/useSvgCodeCheck.js';
+import useValidSvg from './svg Components/useValidSvg.js'
+const TimelineItem = ({ data }) => {
+ const[valid,setValid]=useLinksvg(data.svgUrl);
+ const[detect,setDetect]=useSvgCodeCheck(data.svgUrl);
+  const [svg,setSvg] = useValidSvg(valid,detect,data.svgUrl);
 
-  const [svg, setSvg] = useState(null);
-   
-    
-    const svgRegex=/^\s*(?:<\?xml[^>]*>\s*)?(?:<!doctype svg[^>]*\s*(?:\[?(?:\s*<![^>]*>\s*)*\]?)*[^>]*>\s*)?(?:<svg[^>]*>[^]*<\/svg>|<svg[^/>]*\/\s*>)\s*$/;
-      ;
-         
-    const detectSvg=(input)=>{
-      if(!svgRegex.test(input)){
-        alert("pleaseinput proper svg");
-      }
-      else{
-        setSvg(input);
-      }
-
-    }
-
-    useEffect(() => {
-      if(valid===true){
-        fetch(data.svgUrl)
-            .then(res => res.text())
-            .then(setSvg)
-      }
-          
-          else{
-            detectSvg(data.svgUrl);
-          }  
-           
-    }, [data.svgUrl]);
     return(
       <div className="timeline">
                         <div className="timeline-content">

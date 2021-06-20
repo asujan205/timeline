@@ -3,14 +3,11 @@ import React,{useState,useEffect, createElement} from 'react';
 import TimelineItem from './timelineitem.js';
 import Select from 'react-select';
 import {groupedOptions} from'./docs/data';
-
-
+import useLocalStorage from './svg Components/useLocalStorage.js';
 
 function App() {  
   const[user,setData]=useState([]);
-  const[valid,setValid]=useState(false);
-   
-    const urlRegex=/https?:\/\/.*\.(?:svg)/;
+
   const saveuser = (e) => {
     e.preventDefault();
     const newUser = {
@@ -21,39 +18,26 @@ function App() {
       dateTime:e.target.date.value,
     };
     setData([...user, newUser]);
-     checkValid(e.target.svgUrl.value);
+   
     e.target.Name.value = "";
     e.target.svgUrl.value="";
     e.target.color.value="";
     e.target.date.value='';
   };
- const checkValid = (value) => {
-     if (!urlRegex.test(value)) {
-      setValid(false);
-    } 
-    else {
-      setValid(true);
-    }
-      }
+   const[timelinedata,setTimelinedata]=useLocalStorage(user);
+  useEffect(()=>{  
+  setTimelinedata(user);
+  },[user])
+ 
+   //console.log(timelinedata)
 
-  useEffect(() => {
-    const json = JSON.stringify(user);
-    localStorage.setItem("users", json);
-  }, [user]);
 
-  useEffect(() => {
-  const json = localStorage.getItem("users");
-  const users = JSON.parse(json);
-  if (users) {
-    setData(users);
-  }
-}, []);
 
-const a=()=>{
+const ShowTimeline=()=>{
   
   const inerPart=document.getElementById('timeline').innerHTML;
    const orderHtml = '<html><head><title></title></head><body>' + inerPart + '</body></html>'
-  console.log(orderHtml); 
+ console.log(orderHtml); 
 
  
 }
@@ -77,15 +61,18 @@ const a=()=>{
       /><br/>
       <label>Date</label>
       <input type="date" name="date" /><br/>
-<input type="submit" onClick={a} /> 
+<input type="submit" onClick={ShowTimeline} /> 
     
     </form>
     </div>
  
     <div className="main-timeline"  id="timeline"  >
  
-            {user.map((data) => (
-                <TimelineItem data={data} valid={valid} />
+            {timelinedata.map((data) => (
+              <>
+                <TimelineItem data={data}  />
+               
+                </>
             ))}
         </div>
       
