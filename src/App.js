@@ -3,7 +3,7 @@ import React,{useState,useEffect, createElement} from 'react';
 import TimelineItem from './timelineitem.js';
 import Select from 'react-select';
 import {groupedOptions} from'./docs/data';
-import useLocalStorage from './svg Components/useLocalStorage.js';
+import useLocalStorage from './Hooks/useLocalStorage.js';
 
 function App() {  
   const[user,setData]=useState([]);
@@ -12,8 +12,8 @@ function App() {
     e.preventDefault();
     const newUser = {
       id: Math.random().toString(36).substr(2, 9),
-      name: e.target.Name.value,
-      svgUrl:e.target.svgUrl.value,
+    name: e.target.Name.value,
+   svgUrl:e.target.svgUrl.value,
       bgColor:e.target.color.value,
       dateTime:e.target.date.value,
     };

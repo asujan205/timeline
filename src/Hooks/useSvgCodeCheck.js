@@ -1,7 +1,7 @@
 import {useState,useEffect} from 'react';
 
 
-export default function useSvgCodeCheck(value){
+export default function useCheckSvgCodeIsValid(value){
  const[detect,setDetect]=useState();
   const svgRegex=/^\s*(?:<\?xml[^>]*>\s*)?(?:<!doctype svg[^>]*\s*(?:\[?(?:\s*<![^>]*>\s*)*\]?)*[^>]*>\s*)?(?:<svg[^>]*>[^]*<\/svg>|<svg[^/>]*\/\s*>)\s*$/;
  useEffect(()=>{

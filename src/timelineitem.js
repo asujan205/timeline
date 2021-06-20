@@ -1,12 +1,12 @@
 import React,{useState,useEffect} from 'react';
 import './App.css';
-import useLinksvg from './svg Components/useLinksvg.js';
-import useSvgCodeCheck from './svg Components/useSvgCodeCheck.js';
-import useValidSvg from './svg Components/useValidSvg.js'
+import  useCheckSvgIsValid from './Hooks/useLinksvg.js';
+import useCheckSvgCodeIsValid from './Hooks/useSvgCodeCheck.js';
+import useCheckValidSvg from './Hooks/useValidSvg.js';
 const TimelineItem = ({ data }) => {
- const[valid,setValid]=useLinksvg(data.svgUrl);
- const[detect,setDetect]=useSvgCodeCheck(data.svgUrl);
-  const [svg,setSvg] = useValidSvg(valid,detect,data.svgUrl);
+ const[valid,setValid]= useCheckSvgIsValid(data.svgUrl);
+ const[detect,setDetect]=useCheckSvgCodeIsValid(data.svgUrl);
+  const [svg,setSvg] = useCheckValidSvg(valid,detect,data.svgUrl);
 
     return(
       <div className="timeline">

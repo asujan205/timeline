@@ -1,7 +1,7 @@
 import {useState,useEffect} from 'react';
 
 
-export default function useSvg(value){
+export default function useCheckSvgIsValid(value){
  const[valid,setValid]=useState();
  const urlRegex=/https?:\/\/.*\.(?:svg)/;
 

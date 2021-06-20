@@ -1,7 +1,7 @@
 import {useState,useEffect} from 'react';
- export default function useValidSvg(valid,detect,svgUrl)
+ export default function useCheckValidSvg(valid,detect,svgUrl)
  {
- 	const[svg,setSvg]=useState(null)
+ 	const[svg,setSvg]=useState(null);
  	 useEffect(() => {
       if(valid===true){
         fetch(svgUrl)
