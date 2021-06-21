@@ -15,7 +15,7 @@ import {useState,useEffect} from 'react';
               setSvg(svgUrl);
                 }
               if(detect===false && valid===false){
-              alert("valid bro valid"); 
+              alert("Please,Enter Valid Svg"); 
                }
             
        
