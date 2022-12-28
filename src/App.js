@@ -4,7 +4,7 @@ import TimelineItem from './timelineitem.js';
 import Select from 'react-select';
 import {groupedOptions} from'./docs/data';
 import useLocalStorage from './Hooks/useLocalStorage.js';
-
+import './TimelineInputButtonCss/InputCss.css'
 function App() {  
   const[user,setData]=useState([]);
 
@@ -48,7 +48,7 @@ const ShowTimeline=()=>{
     <form onSubmit={saveuser}>
       
         <lable>Name:</lable>
-<input type="text" name="Name"/><br/>
+<input type="text" name="Name" className='inputFeild'/><br/>
 <lable>SVG:</lable>
 <input type='text' name='svgUrl' /><br/>
 <lable>backgroundColor:</lable>
