@@ -1,7 +1,20 @@
 .inputFeild {
    width: 25rem;
-   height: 1.5rem;
+   height: 2rem;
    background-color: rgb(94, 78, 85);
    padding-left: 20px;
-   padding-top: 30px;
+   margin-top: 20px;
+   margin-left: 300px;
+   border : 2px solid rgb(49, 20, 56);
+   border-radius: 1rem;
+}
+.textArea{
+    width: 30rem;
+    height: 10rem;
+    background-color: rgb(94, 78, 85);
+    padding-left: 20px;
+    margin-top: 20px;
+    margin-left: 310px;
+    border : 2px solid rgb(49, 20, 56);
+    border-radius: 1rem;
 }

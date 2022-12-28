@@ -50,7 +50,7 @@ const ShowTimeline=()=>{
         <lable>Name:</lable>
 <input type="text" name="Name" className='inputFeild'/><br/>
 <lable>SVG:</lable>
-<input type='text' name='svgUrl' /><br/>
+<input type='text' name='svgUrl' className='textArea'/><br/>
 <lable>backgroundColor:</lable>
 <Select
         className="basic-single"
