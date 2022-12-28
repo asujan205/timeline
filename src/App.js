@@ -60,8 +60,8 @@ const ShowTimeline=()=>{
         
       /><br/>
       <label>Date</label>
-      <input type="date" name="date" /><br/>
-<input type="submit" onClick={ShowTimeline} /> 
+      <input type="date" name="date"  className='DatePicker'/><br/>
+<input type="submit" onClick={ShowTimeline}  className='sumbit-btn'/> 
     
     </form>
     </div>
