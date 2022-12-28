@@ -18,3 +18,11 @@
     border : 2px solid rgb(49, 20, 56);
     border-radius: 1rem;
 }
+.basic-single{
+    width: 30rem;
+    margin-top: 20px;
+    margin-left: 340px;
+    background-color: rgb(94, 78, 85);
+    height: 1.5rem;
+
+}
